@@ -116,6 +116,8 @@
 <form>
   <input type="text" id="name" placeholder="Your Name" required>
   <input type="tel" id="phone" placeholder="Phone Number" required>
+  <label for="date">Select Event Date</label>
+<input type="date" id="date" required>
   <textarea id="message" rows="4" placeholder="Your Message"></textarea>
 
   <button onclick="sendWhatsApp()" class="btn submit-btn">
@@ -146,23 +148,29 @@
   function sendWhatsApp() {
     var name = document.getElementById("name").value;
     var phone = document.getElementById("phone").value;
+    var date = document.getElementById("date").value;
     var message = document.getElementById("message").value;
 
-    var ownerNumber = "+918300360236"; // 🔴 CHANGE THIS to your WhatsApp number (with country code)
+    if(name === "" || phone === "" || date === "") {
+      alert("Please enter name, phone number and event date");
+      return;
+    }
 
-    var text = "Hello, I am " + name + 
-               "%0APhone: " + phone + 
+    var ownerNumber = "+91 8300360236"; // 🔴 put your WhatsApp number
+
+    var text = "Hello, I am " + name +
+               "%0APhone: " + phone +
+               "%0AEvent Date: " + date +
                "%0AMessage: " + message;
 
-    var url = "https://wa.me/" + ownerNumber + "?text=" + text;
-
-    window.open(url, "_blank");
+    window.open("https://wa.me/" + ownerNumber + "?text=" + text, "_blank");
   }
 </script>
 
 </body>
 
 </html>
+
 
 
 
