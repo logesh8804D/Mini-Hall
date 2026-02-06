@@ -11,28 +11,102 @@ body {
 }
 
 /* NAVBAR */
-.navbar {
-  background: #111;
-  color: white;
-  padding: 15px 25px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+/* STYLISH NAVBAR */
+.stylish-nav {
   position: sticky;
   top: 0;
   z-index: 1000;
+  backdrop-filter: blur(10px);
+  background: rgba(15, 23, 42, 0.75);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
 
-.navbar nav a {
-  color: white;
-  margin: 0 10px;
+.nav-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.5px;
+}
+
+.nav-links a {
+  position: relative;
+  margin: 0 12px;
+  color: #e5e7eb;
   text-decoration: none;
+  font-weight: 500;
+  padding: 6px 0;
 }
 
-.navbar nav a:hover {
-  text-decoration: underline;
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, #ff7a18, #ffb347);
+  transition: width 0.3s ease;
 }
 
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-cta {
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #ff7a18, #ffb347);
+  color: #111 !important;
+}
+
+/* HAMBURGER (Mobile) */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 24px;
+  height: 2px;
+  background: #fff;
+}
+
+/* MOBILE MENU */
+@media (max-width: 768px) {
+  .hamburger { display: flex; }
+
+  .nav-links {
+    position: absolute;
+    top: 60px;
+    right: 16px;
+    background: rgba(15, 23, 42, 0.95);
+    border-radius: 12px;
+    padding: 12px 10px;
+    display: none;
+    flex-direction: column;
+    width: 180px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  }
+
+  .nav-links a {
+    margin: 8px 10px;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+}
 /* HERO SLIDER */
 .hero.slider {
   position: relative;
@@ -309,4 +383,5 @@ body {
     color: #ccc;
     padding: 15px 20px;
     text-align: center;
+
 }
