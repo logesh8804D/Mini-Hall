@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>L.S Pari Mini Hall</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="logo">L.S Pari Mini Hall</div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- HERO SLIDER -->
+  <section id="home" class="hero slider">
+    <div class="slides">
+      <img src="c:\Users\Lenovo\OneDrive\Pictures\din.jpg" class="slide active" alt="Function Hall 1">
+      <img src="c:\Users\Lenovo\OneDrive\Pictures\fun.jpg" class="slide" alt="Function Hall 2">
+      <img src="c:\Users\Lenovo\OneDrive\Pictures\ss.jpg" class="slide" alt="Function Hall 3">
+    </div>
+
+    <div class="overlay"></div>
+
+    <div class="hero-content">
+      <h1>Celebrate Your Special Moments</h1>
+      <p>Luxury Function Hall for Weddings, Parties & Corporate Events</p>
+      <a href="#contact" class="btn primary">Book Now</a>
+      <a href="#gallery" class="btn secondary">View Gallery</a>
+    </div>
+  </section>
+
+  <section id="about" class="about simple-about">
+  <div class="about-wrap">
+    <div class="about-text">
+      <h2>About Us</h2>
+      <p>
+        Mini hall has premium function hall for weddings, receptions, birthdays,
+        and corporate events. We offer a spacious AC hall, beautiful decoration,
+        and complete support to make your event special.
+      </p>
+
+      <div class="about-points">
+        <span>✔ Spacious AC Hall</span>
+        <span>✔ Modern Lighting</span>
+        <span>✔ Parking Facility</span>
+        <span>✔ Easy Booking</span>
+      </div>
+
+      <a href="#contact" class="btn primary">Enquire Now</a>
+    </div>
+
+    <div class="about-img">
+      <img src="c:\Users\Lenovo\OneDrive\Pictures\l6.jpg" alt="Function Hall">
+    </div>
+  </div>
+</section>
+
+<section id="gallery" class="gallery stylish-gallery">
+  <h2>Gallery</h2>
+  <p class="gallery-sub">Some moments from our function hall</p>
+
+  <div class="gallery-grid">
+    <div class="gallery-item">
+      <img src="c:\Users\Lenovo\OneDrive\Pictures\l1.jpg" alt="Hall View 1">
+    </div>
+    <div class="gallery-item">
+      <img src="c:\Users\Lenovo\OneDrive\Pictures\l2.jpg" alt="Hall View 2">
+    </div>
+    <div class="gallery-item">
+      <img src="c:\Users\Lenovo\OneDrive\Pictures\l4.jpg" alt="Hall View 3">
+    </div>
+    <div class="gallery-item">
+      <img src="c:\Users\Lenovo\OneDrive\Pictures\voter\l10.jpeg" alt="Hall View 4">
+    </div>
+  </div>
+</section>
+
+<section id="services" class="services stylish-services">
+  <h2>Our Services</h2>
+  <p class="services-sub">
+    We provide complete support for all types of events and celebrations.
+  </p>
+
+  <div class="services-cards">
+    <div class="service-card">
+      <div class="icon">💍</div>
+      <h3>Wedding Events</h3>
+      <p>Beautiful decoration and spacious hall for unforgettable weddings.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="icon">🎂</div>
+      <h3>Birthday Parties</h3>
+      <p>Fun and vibrant ambience for birthday celebrations of all ages.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="icon">🏢</div>
+      <h3>Corporate Events</h3>
+      <p>Professional setup for meetings, seminars and business events.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <h2>Contact Us</h2>
+<form>
+  <input type="text" id="name" placeholder="Your Name" required>
+  <input type="tel" id="phone" placeholder="Phone Number" required>
+  <textarea id="message" rows="4" placeholder="Your Message"></textarea>
+
+  <button onclick="sendWhatsApp()" class="btn submit-btn">
+    Send on WhatsApp
+  </button>
+  </form>
+</section>
+
+<footer class="footer">
+    <p>&copy; 2026 L.S Pari Function Hall | All Rights Reserved</p>
+</footer>
+
+  <!-- SLIDER SCRIPT -->
+  <script>
+    const slides = document.querySelectorAll(".slide");
+    let current = 0;
+
+    function showNextSlide() {
+      slides[current].classList.remove("active");
+      current = (current + 1) % slides.length;
+      slides[current].classList.add("active");
+    }
+
+    setInterval(showNextSlide, 3000); // 3 seconds
+
+  </script>
+  <script>
+  function sendWhatsApp() {
+    var name = document.getElementById("name").value;
+    var phone = document.getElementById("phone").value;
+    var message = document.getElementById("message").value;
+
+    var ownerNumber = "8300360236"; // 🔴 CHANGE THIS to your WhatsApp number (with country code)
+
+    var text = "Hello, I am " + name + 
+               "%0APhone: " + phone + 
+               "%0AMessage: " + message;
+
+    var url = "https://wa.me/" + ownerNumber + "?text=" + text;
+
+    window.open(url, "_blank");
+  }
+</script>
+
+</body>
+</html>
